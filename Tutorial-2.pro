@@ -9,4 +9,14 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    car.cpp \
+    bus.cpp \
+    bicycle.cpp
+
+HEADERS += \
+    vehicle.h \
+    motorvehicle.h \
+    car.h \
+    bus.h \
+    bicycle.h
