@@ -1,6 +1,8 @@
 #ifndef HARDDRIVESET_H
 #define HARDDRIVESET_H
 
+#include <sstream>
+
 #include "HardDrive.h"
 
 class HardDriveSet : public Part

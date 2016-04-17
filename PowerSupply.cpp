@@ -25,7 +25,7 @@ PowerSupply::PowerSupply(const PowerSupply &powerSupply)
 std::string PowerSupply::getPartInformation() const
 {
     char maximumPower[5];
-    itoa(m_watts, maximumPower, 10);
+    sprintf(maximumPower, "%d", m_watts);
 
     std::string partInformation ("Power Supply: " + m_name + ", Maximum Power: " + maximumPower + " Watts");
     return partInformation;

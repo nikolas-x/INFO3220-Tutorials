@@ -39,14 +39,14 @@ std::string RamSet::getPartInformation() const
     std::string partInformation("Ram: Number Of Sticks: ");
 
     char numberOfSticks[5];
-    itoa(m_numberOfRamSticks, numberOfSticks, 10);
+    sprintf(numberOfSticks, "%d", m_numberOfRamSticks);
 
     partInformation += numberOfSticks;
 
     for (int i = 0; i < m_numberOfRamSticks; ++i)
     {
         char index[5];
-        itoa(i + 1, index, 10);
+        sprintf(index, "%d", i + 1);
         partInformation += "\nSlot " + std::string(index) + ": " + m_ramSticks[i].getPartInformation();
     }
 

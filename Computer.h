@@ -2,6 +2,7 @@
 #define COMPUTER_H
 
 #include "ComputerPlan.h"
+#include "PartAllocator.h"
 
 class Computer : public ComputerPlan
 {
@@ -142,7 +143,7 @@ public:
      * @brief setNumberOfAdditionalParts sets the number of additional parts permitted for computer
      * @param numberOfAdditionalParts the number of additional parts permitted for computer
      */
-    virtual void setNumberOfAdditionalParts(int numberOfAdditionalParts );
+    virtual void setNumberOfAdditionalParts(int numberOfAdditionalParts);
 
     /**
      * @brief addAdditionalPart adds one new additional Part to computer

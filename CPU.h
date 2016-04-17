@@ -1,6 +1,9 @@
 #ifndef CPU_H
 #define CPU_H
 
+#include <sstream>
+#include <iomanip>
+
 #include "Part.h"
 
 class CPU : public Part

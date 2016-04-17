@@ -23,10 +23,10 @@ GraphicsCard::~GraphicsCard()
 std::string GraphicsCard::getPartInformation() const
 {
     char frequency[5];
-    itoa(m_speed, frequency, 10);
+    sprintf(frequency, "%d", m_speed);
 
     char size[5];
-    itoa(m_size, size, 10);
+    sprintf(size, "%d", m_size);
 
     std::string partInformation(m_name + ", Frequency: " + frequency + " Mhz, Size: " + size + " GB");
 

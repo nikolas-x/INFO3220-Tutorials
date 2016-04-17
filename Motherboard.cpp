@@ -26,9 +26,9 @@ Motherboard::~Motherboard()
 std::string Motherboard::getPartInformation() const
 {
     char numberOfRamSolts[5];
-    itoa(m_numberOfRamSlots, numberOfRamSolts, 10);
+    sprintf(numberOfRamSlots, "%d", m_numberOfRamSlots);
     char numberOfGraphicsCardSlots[5];
-    itoa(m_numberOfGraphicsCardSlots, numberOfGraphicsCardSlots, 10);
+    sprintf(numberOfGraphicsCardSlots, "%d", m_numberOfGraphicsCardSlots);
 
     std::string partInformation ("Motherboard: " + m_name + ", Socket: " + m_socketType + "\n");
     partInformation += "No. of Ram Slots: " + std::string(numberOfRamSolts) + ", No. of Graphics Cards Permitted: " + std::string(numberOfGraphicsCardSlots);

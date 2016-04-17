@@ -23,7 +23,7 @@ CoolingFan::~CoolingFan()
 std::string CoolingFan::getPartInformation() const
 {
     char speed[5];
-    itoa(m_fanSpeed, speed, 10);
+    sprintf(speed, "%d", m_fanSpeed);
 
     std::string partInformation("Cooling Fan: " + m_name + ", Speed: " + speed + " RPM");
 

@@ -42,13 +42,14 @@ std::string GraphicsCardSet::getPartInformation() const
 
     char numberOfCards[5];
     itoa(m_numberOfGraphicsCards, numberOfCards, 10);
+    sprintf(numberOfCards, "%d", m_numberOfGraphicsCards);
 
     partInformation += numberOfCards;
 
     for (int i = 0; i < m_numberOfGraphicsCards; ++i)
     {
         char index[5];
-        itoa(i + 1, index, 10);
+        sprintf(index, "%d", i + 1);
         partInformation += "\nSlot " + std::string(index) + ": " + m_graphicsCards[i].getPartInformation();
     }
 
