@@ -26,7 +26,11 @@ SOURCES += main.cpp \
     Ram.cpp \
     RamSet.cpp \
     SolidStateDrive.cpp \
-    WaterCooling.cpp
+    WaterCooling.cpp \
+    ComputerBuilder.cpp \
+    GamingComputerBuilder.cpp \
+    OfficeComputerBuilder.cpp \
+    ServerBuilder.cpp
 
 HEADERS += \
     BluRayDrive.h \
@@ -50,4 +54,8 @@ HEADERS += \
     Ram.h \
     RamSet.h \
     SolidStateDrive.h \
-    WaterCooling.h
+    WaterCooling.h \
+    ComputerBuilder.h \
+    GamingComputerBuilder.h \
+    OfficeComputerBuilder.h \
+    ServerBuilder.h
