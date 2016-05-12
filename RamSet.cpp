@@ -1,12 +1,13 @@
 #include "RamSet.h"
 
-RamSet::RamSet() : m_ramSticks(0), m_numberOfRamSticks(-1)
-{
-
-}
+RamSet::RamSet()
+    : m_ramSticks(0)
+    , m_numberOfRamSticks(-1) {}
 
 RamSet::RamSet(Ram* ram, int numberOfRamSticks)
-    : Part("Ram Set"), m_ramSticks(new Ram[numberOfRamSticks]), m_numberOfRamSticks(numberOfRamSticks)
+    : Part("Ram Set")
+    , m_ramSticks(new Ram[numberOfRamSticks])
+    , m_numberOfRamSticks(numberOfRamSticks)
 {
     for (int i = 0; i < m_numberOfRamSticks; ++i)
     {
@@ -15,8 +16,9 @@ RamSet::RamSet(Ram* ram, int numberOfRamSticks)
 }
 
 RamSet::RamSet(const RamSet &ramSet)
-    : Part("Ram Set"), m_ramSticks(new Ram[ramSet.m_numberOfRamSticks]),
-      m_numberOfRamSticks(ramSet.m_numberOfRamSticks)
+    : Part("Ram Set")
+    , m_ramSticks(new Ram[ramSet.m_numberOfRamSticks])
+    , m_numberOfRamSticks(ramSet.m_numberOfRamSticks)
 {
     for (int i = 0; i < m_numberOfRamSticks; ++i)
     {
@@ -37,19 +39,15 @@ RamSet::~RamSet()
 std::string RamSet::getPartInformation() const
 {
     std::string partInformation("Ram: Number Of Sticks: ");
-
     char numberOfSticks[5];
     sprintf(numberOfSticks, "%d", m_numberOfRamSticks);
-
     partInformation += numberOfSticks;
-
     for (int i = 0; i < m_numberOfRamSticks; ++i)
     {
         char index[5];
         sprintf(index, "%d", i + 1);
         partInformation += "\nSlot " + std::string(index) + ": " + m_ramSticks[i].getPartInformation();
     }
-
     return partInformation;
 }
 

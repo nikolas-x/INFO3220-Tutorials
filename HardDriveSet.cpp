@@ -1,12 +1,12 @@
 #include "HardDriveSet.h"
 
-HardDriveSet::HardDriveSet() : m_hardDrives(0), m_numberOfHardDrives(-1)
-{
-
-}
+HardDriveSet::HardDriveSet()
+    : m_hardDrives(0)
+    , m_numberOfHardDrives(-1) {}
 
 HardDriveSet::HardDriveSet(HardDrive **hardDrives, int numberOfHardDrives)
-    : Part("Hard Drive Set"), m_hardDrives(new HardDrive*[numberOfHardDrives])
+    : Part("Hard Drive Set")
+    , m_hardDrives(new HardDrive*[numberOfHardDrives])
     , m_numberOfHardDrives(numberOfHardDrives)
 {
     for (int i = 0; i < m_numberOfHardDrives; ++i)
@@ -16,7 +16,8 @@ HardDriveSet::HardDriveSet(HardDrive **hardDrives, int numberOfHardDrives)
 }
 
 HardDriveSet::HardDriveSet(const HardDriveSet &hardDriveSet)
-    : Part("Hard Drive Set"), m_hardDrives(new HardDrive*[hardDriveSet.m_numberOfHardDrives])
+    : Part("Hard Drive Set")
+    , m_hardDrives(new HardDrive*[hardDriveSet.m_numberOfHardDrives])
     , m_numberOfHardDrives(hardDriveSet.m_numberOfHardDrives)
 {
     for (int i = 0; i < m_numberOfHardDrives; ++i)
@@ -27,7 +28,6 @@ HardDriveSet::HardDriveSet(const HardDriveSet &hardDriveSet)
 
 HardDriveSet::~HardDriveSet()
 {
-
     if (m_hardDrives != 0 && m_numberOfHardDrives != -1)
     {
         for (int i = 0; i < m_numberOfHardDrives; ++i)
@@ -45,14 +45,11 @@ HardDriveSet::~HardDriveSet()
 std::string HardDriveSet::getPartInformation() const
 {
     std::stringstream ss;
-
-    ss << "Hard drives: Number of Drives: " << m_numberOfHardDrives;
-
+    ss << "Hard Drives: Number Of Drives: " << m_numberOfHardDrives;
     for (int i = 0; i < m_numberOfHardDrives; ++i)
     {
         ss << std::endl << "Drive " << i + 1 << ":" << m_hardDrives[i]->getPartInformation();
     }
-
     return ss.str();
 }
 

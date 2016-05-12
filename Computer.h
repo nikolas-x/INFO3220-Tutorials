@@ -167,7 +167,7 @@ protected:
     std::string m_computerType;
 
     Part** m_requiredParts;
-    static int numberOfRequiredParts;
+    const static int numberOfRequiredParts = 7;
 
     Part** m_additionalParts;
     int m_numberOfAdditionalParts;

@@ -1,24 +1,14 @@
 #include "BluRayDrive.h"
 
-BluRayDrive::BluRayDrive()
-{
+BluRayDrive::BluRayDrive() {}
 
-}
+BluRayDrive::BluRayDrive(const std::string &name, int readSpeed)
+    : DiscDrive(name, readSpeed) {}
 
-BluRayDrive::BluRayDrive(const std::string &name, int readSpeed) : DiscDrive(name, readSpeed)
-{
+BluRayDrive::BluRayDrive(const BluRayDrive &discDrive)
+    : DiscDrive(discDrive.m_name, discDrive.m_readSpeed) {}
 
-}
-
-BluRayDrive::BluRayDrive(const BluRayDrive &discDrive) : DiscDrive(discDrive.m_name, discDrive.m_readSpeed)
-{
-
-}
-
-BluRayDrive::~BluRayDrive()
-{
-
-}
+BluRayDrive::~BluRayDrive() {}
 
 std::string BluRayDrive::getPartInformation() const
 {

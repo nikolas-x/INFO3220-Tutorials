@@ -1,7 +1,11 @@
 #include "Computer.h"
 
-Computer::Computer() : m_computerType("Generic Computer"), m_requiredParts(new Part*[numberOfRequiredParts]),
-    m_additionalParts(0), m_numberOfAdditionalParts(-1), m_numberOfAssignedAdditionalParts(0)
+Computer::Computer()
+    : m_computerType("Generic Computer")
+    , m_requiredParts(new Part*[numberOfRequiredParts])
+    , m_additionalParts(0)
+    , m_numberOfAdditionalParts(-1)
+    , m_numberOfAssignedAdditionalParts(0)
 
 {
     m_requiredParts[CPUID] = new CPU();
@@ -88,16 +92,12 @@ int Computer::getNumberOfAdditionalParts() const
 std::string Computer::getComputerSpecifications() const
 {
     std::stringstream ss;
-    ss << m_computerType << std::endl
-       << m_requiredParts[CPUID]->getPartInformation() << std::endl
-       << m_requiredParts[MotherboardID]->getPartInformation() << std::endl
-       << m_requiredParts[RamSetID]->getPartInformation() << std::endl
-       << m_requiredParts[HardDriveSetID]->getPartInformation() << std::endl
-       << m_requiredParts[GraphicsCardSetID]->getPartInformation() << std::endl
-       << m_requiredParts[CaseID]->getPartInformation() << std::endl
-       << m_requiredParts[PowerSupplyID]->getPartInformation() << std::endl
-       << "Additional Parts";
-
+    ss << m_computerType << std::endl;
+    for (int i = 0; i < numberOfRequiredParts; ++i)
+    {
+        ss << m_requiredParts[i]->getPartInformation() << std::endl;
+    }
+    ss << "Additional Parts";
     for (int i = 0; i < m_numberOfAdditionalParts; ++i)
     {
         ss << std::endl << m_additionalParts[i]->getPartInformation();
@@ -165,6 +165,6 @@ void Computer::addAdditionalPart(const Part &part)
 {
     if (m_numberOfAssignedAdditionalParts < m_numberOfAdditionalParts)
     {
-        m_additionalParts[m_numberOfAssignedAdditionalParts++] = new Part(part);
+        m_additionalParts[m_numberOfAssignedAdditionalParts++] = PartAllocator::getPart(part);
     }
 }

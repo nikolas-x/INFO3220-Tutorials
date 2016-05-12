@@ -1,26 +1,16 @@
 #include "WaterCooling.h"
 
-WaterCooling::WaterCooling()
-{
-
-}
+WaterCooling::WaterCooling() {}
 
 WaterCooling::WaterCooling(const std::string &name, const std::string &systemType)
-    : Part(name), m_systemType(systemType)
-{
-
-}
+    : Part(name)
+    , m_systemType(systemType) {}
 
 WaterCooling::WaterCooling(const WaterCooling &waterCooling)
-    : Part(waterCooling.m_name), m_systemType(waterCooling.m_systemType)
-{
+    : Part(waterCooling.m_name)
+    , m_systemType(waterCooling.m_systemType) {}
 
-}
-
-WaterCooling::~WaterCooling()
-{
-
-}
+WaterCooling::~WaterCooling() {}
 
 std::string WaterCooling::getPartInformation() const
 {

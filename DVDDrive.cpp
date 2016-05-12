@@ -1,19 +1,12 @@
 #include "DVDDrive.h"
 
-DVDDrive::DVDDrive()
-{
+DVDDrive::DVDDrive() {}
 
-}
+DVDDrive::DVDDrive(const std::string &name, int readSpeed)
+    : DiscDrive(name, readSpeed) {}
 
-DVDDrive::DVDDrive(const std::string &name, int readSpeed) : DiscDrive(name, readSpeed)
-{
-
-}
-
-DVDDrive::DVDDrive(const DVDDrive &discDrive) : DiscDrive(discDrive.m_name, discDrive.m_readSpeed)
-{
-
-}
+DVDDrive::DVDDrive(const DVDDrive &discDrive)
+    : DiscDrive(discDrive.m_name, discDrive.m_readSpeed) {}
 
 DVDDrive::~DVDDrive()
 {

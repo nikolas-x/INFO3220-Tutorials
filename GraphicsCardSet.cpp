@@ -1,13 +1,12 @@
 #include "GraphicsCardSet.h"
 
 GraphicsCardSet::GraphicsCardSet()
-    : m_graphicsCards(0), m_numberOfGraphicsCards(-1)
-{
-
-}
+    : m_graphicsCards(0)
+    , m_numberOfGraphicsCards(-1) {}
 
 GraphicsCardSet::GraphicsCardSet(GraphicsCard* graphicsCards, int numberOfGraphicsCards)
-    : Part("Graphics Card Set"),  m_graphicsCards(new GraphicsCard[numberOfGraphicsCards])
+    : Part("Graphics Card Set")
+    , m_graphicsCards(new GraphicsCard[numberOfGraphicsCards])
     , m_numberOfGraphicsCards(numberOfGraphicsCards)
 {
     for (int i = 0; i < m_numberOfGraphicsCards; ++i)
@@ -17,7 +16,8 @@ GraphicsCardSet::GraphicsCardSet(GraphicsCard* graphicsCards, int numberOfGraphi
 }
 
 GraphicsCardSet::GraphicsCardSet(const GraphicsCardSet &graphicsCardSet)
-    : Part("Graphics Card Set"),  m_graphicsCards(new GraphicsCard[graphicsCardSet.m_numberOfGraphicsCards])
+    : Part("Graphics Card Set")
+    , m_graphicsCards(new GraphicsCard[graphicsCardSet.m_numberOfGraphicsCards])
     , m_numberOfGraphicsCards(graphicsCardSet.m_numberOfGraphicsCards)
 {
     for (int i = 0; i < m_numberOfGraphicsCards; ++i)
