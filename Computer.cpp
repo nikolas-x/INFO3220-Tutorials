@@ -4,7 +4,7 @@ Computer::Computer()
     : m_computerType("Generic Computer")
     , m_requiredParts(new Part*[numberOfRequiredParts])
     , m_additionalParts(0)
-    , m_numberOfAdditionalParts(-1)
+    , m_numberOfAdditionalParts(0)
     , m_numberOfAssignedAdditionalParts(0)
 
 {
@@ -46,37 +46,37 @@ const std::string &Computer::getComputerType() const
 
 const CPU &Computer::getCPU() const
 {
-    return (CPU&) m_requiredParts[CPUID];
+    return dynamic_cast<const CPU&>(*m_requiredParts[CPUID]);
 }
 
 const Motherboard &Computer::getMotherboard() const
 {
-    return (Motherboard&) m_requiredParts[MotherboardID];
+    return dynamic_cast<Motherboard&>(*m_requiredParts[MotherboardID]);
 }
 
 const RamSet &Computer::getRamSet() const
 {
-    return (RamSet&) m_requiredParts[RamSetID];
+    return dynamic_cast<RamSet&>(*m_requiredParts[RamSetID]);
 }
 
 const HardDriveSet &Computer::getHardDriveSet() const
 {
-    return (HardDriveSet&) m_requiredParts[HardDriveSetID];
+    return dynamic_cast<HardDriveSet&>(*m_requiredParts[HardDriveSetID]);
 }
 
 const GraphicsCardSet &Computer::getGraphicsCardSet() const
 {
-    return (GraphicsCardSet&) m_requiredParts[GraphicsCardSetID];
+    return dynamic_cast<GraphicsCardSet&>(*m_requiredParts[GraphicsCardSetID]);
 }
 
 const PowerSupply &Computer::getPowerSupply() const
 {
-    return (PowerSupply&) m_requiredParts[CaseID];
+    return dynamic_cast<PowerSupply&>(*m_requiredParts[PowerSupplyID]);
 }
 
 const Case &Computer::getCase() const
 {
-    return (Case&) m_requiredParts[PowerSupplyID];
+    return dynamic_cast<Case&>(*m_requiredParts[CaseID]);
 }
 
 Part **Computer::getAdditionalPartsList() const
@@ -98,9 +98,10 @@ std::string Computer::getComputerSpecifications() const
         ss << m_requiredParts[i]->getPartInformation() << std::endl;
     }
     ss << "Additional Parts";
-    for (int i = 0; i < m_numberOfAdditionalParts; ++i)
+    for (int i = 0; i < m_numberOfAssignedAdditionalParts; ++i)
     {
-        ss << std::endl << m_additionalParts[i]->getPartInformation();
+        ss << std::endl
+           << m_additionalParts[i]->getPartInformation();
     }
 
     return ss.str();
@@ -126,22 +127,19 @@ void Computer::setMotherboard(const Motherboard &motherboard)
 void Computer::setRAM(Ram *ram, int numberOfRamSticks)
 {
     delete m_requiredParts[RamSetID];
-    RamSet set = PartAllocator::getRamSet(ram, numberOfRamSticks);
-    m_requiredParts[RamSetID] = new RamSet(set);
+    m_requiredParts[RamSetID] = new RamSet(ram, numberOfRamSticks);
 }
 
 void Computer::setHardDrives(HardDrive **hardDrive, int numberOfHardDrives)
 {
     delete m_requiredParts[HardDriveSetID];
-    HardDriveSet set = PartAllocator::getHardDriveSet(hardDrive, numberOfHardDrives);
-    m_requiredParts[HardDriveSetID] = new HardDriveSet(set);
+    m_requiredParts[HardDriveSetID] = new HardDriveSet(hardDrive, numberOfHardDrives);
 }
 
 void Computer::setGraphicsCards(GraphicsCard *graphicsCard, int numberOfGraphicsCard)
 {
     delete m_requiredParts[GraphicsCardSetID];
-    GraphicsCardSet set = PartAllocator::getGraphicsCardSet(graphicsCard, numberOfGraphicsCard);
-    m_requiredParts[GraphicsCardSetID] = new GraphicsCardSet(set);
+    m_requiredParts[GraphicsCardSetID] = new GraphicsCardSet(graphicsCard, numberOfGraphicsCard);
 }
 
 void Computer::setPowerSupply(const PowerSupply &powerSupply)
@@ -159,6 +157,7 @@ void Computer::setCase(const Case &computerCase)
 void Computer::setNumberOfAdditionalParts(int numberOfAdditionalParts)
 {
     m_numberOfAdditionalParts = numberOfAdditionalParts;
+    m_additionalParts = new Part*[numberOfAdditionalParts];
 }
 
 void Computer::addAdditionalPart(const Part &part)
