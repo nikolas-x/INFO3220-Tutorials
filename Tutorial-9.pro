@@ -9,4 +9,12 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    EuclideanVector.cpp
+
+HEADERS += \
+    EuclideanVector.h \
+    VectorArithmeticException.h \
+    VectorAssignmentException.h \
+    VectorIndexOutOfBoundsException.h \
+    VectorRuntimeException.h
