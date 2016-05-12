@@ -9,4 +9,10 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    stringstackqueue.cpp
+
+HEADERS += \
+    stringstack.h \
+    stringqueue.h \
+    stringstackqueue.h
