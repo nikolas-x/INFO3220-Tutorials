@@ -24,7 +24,7 @@ void StringStackQueue::push(const std::string &string)
 
 std::string StringStackQueue::pop()
 {
-    std::string element = "";
+    std::string element;
 
     if (!m_strings.empty())
     {
@@ -67,15 +67,7 @@ void StringStackQueue::enqueue(const std::string &string)
 
 std::string StringStackQueue::deqeue()
 {
-    std::string element = "";
-
-    if (!m_strings.empty())
-    {
-        element = m_strings.front();
-        m_strings.pop_front();
-    }
-
-    return element;
+    return pop();
 }
 
 StringQueue &StringStackQueue::operator =(const StringQueue &queue)
