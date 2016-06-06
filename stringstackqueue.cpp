@@ -52,9 +52,7 @@ StringStack &StringStackQueue::operator =(const StringStack &stack)
         mutableStack->push(*iter);
     }
 
-    StringStack* currentStack = static_cast<StringStack*>(this);
-
-    return *currentStack;
+    return *this;
 }
 
 const std::string &StringStackQueue::front() const
@@ -97,7 +95,5 @@ StringQueue &StringStackQueue::operator =(const StringQueue &queue)
         mutableQueue->enqueue(*iter);
     }
 
-    StringQueue* currentQueue = static_cast<StringQueue*>(this);
-
-    return *currentQueue;
+    return *this;
 }
