@@ -9,4 +9,9 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    Tests.cpp
+
+HEADERS += \
+    SharedPointer.h \
+    Tests.h

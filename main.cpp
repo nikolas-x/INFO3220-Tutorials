@@ -1,8 +1,6 @@
-#include <QCoreApplication>
+#include "Tests.h"
 
-int main(int argc, char *argv[])
+int main( int argc, const char** argv)
 {
-    QCoreApplication a(argc, argv);
-
-    return a.exec();
+    return Tests::runTests();
 }
