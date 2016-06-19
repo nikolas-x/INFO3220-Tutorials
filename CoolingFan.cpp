@@ -1,20 +1,23 @@
 #include "CoolingFan.h"
 
 CoolingFan::CoolingFan()
-    : OptionalPart()
+    : Part()
+    , OptionalPart()
 {
 
 }
 
 CoolingFan::CoolingFan(const std::string &name, int fanSpeed)
-    : OptionalPart(name)
+    : Part(name)
+    , OptionalPart()
     , m_fanSpeed(fanSpeed)
 {
 
 }
 
 CoolingFan::CoolingFan(const CoolingFan &coolingFan)
-    : OptionalPart(coolingFan.m_name)
+    : Part(coolingFan.m_name)
+    , OptionalPart()
     , m_fanSpeed(coolingFan.m_fanSpeed)
 {
 

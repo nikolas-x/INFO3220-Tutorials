@@ -5,7 +5,7 @@
 #include "RequiredPart.h"
 #include "VisitablePart.h"
 
-class CPU : public RequiredPart
+class CPU : public RequiredPart, public VisitablePart
 {
 public:
 

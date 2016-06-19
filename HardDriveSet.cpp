@@ -2,7 +2,8 @@
 #include "PartAllocator.h"
 
 HardDriveSet::HardDriveSet()
-    : RequiredPart("Hard Drive Set")
+    : Part("Hard Drive Set")
+    , RequiredPart()
     , m_hardDrives(0)
     , m_numberOfHardDrives(-1)
 {
@@ -10,7 +11,8 @@ HardDriveSet::HardDriveSet()
 }
 
 HardDriveSet::HardDriveSet(HardDrive** hardDrives, int numberOfHardDrives)
-    : RequiredPart("Hard Drive Set")
+    : Part("Hard Drive Set")
+    , RequiredPart()
     , m_hardDrives(new HardDrive*[numberOfHardDrives])
     , m_numberOfHardDrives(numberOfHardDrives)
 {
@@ -21,7 +23,8 @@ HardDriveSet::HardDriveSet(HardDrive** hardDrives, int numberOfHardDrives)
 }
 
 HardDriveSet::HardDriveSet(const HardDriveSet& hardDriveSet)
-    : RequiredPart("Hard Drive Set")
+    : Part("Hard Drive Set")
+    , RequiredPart()
     , m_hardDrives(new HardDrive*[hardDriveSet.getNumberOfHardDrives()])
     , m_numberOfHardDrives(hardDriveSet.getNumberOfHardDrives())
 {

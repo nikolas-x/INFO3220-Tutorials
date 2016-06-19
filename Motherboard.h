@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class Motherboard : public RequiredPart
+class Motherboard : public RequiredPart, public VisitablePart
 {
 public:
 

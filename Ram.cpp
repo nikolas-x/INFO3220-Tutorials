@@ -1,13 +1,15 @@
 #include "Ram.h"
 
 Ram::Ram()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
 {
 
 }
 
 Ram::Ram(const std::string &name, int speed, int size)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_speed(speed)
     , m_size(size)
 {
@@ -15,7 +17,8 @@ Ram::Ram(const std::string &name, int speed, int size)
 }
 
 Ram::Ram(const Ram& ram)
-    : RequiredPart(ram.m_name)
+    : Part(ram.m_name)
+    , RequiredPart()
     , m_speed(ram.m_speed)
     , m_size(ram.m_size)
 {

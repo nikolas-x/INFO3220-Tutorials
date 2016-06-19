@@ -1,7 +1,8 @@
 #include "GraphicsCardSet.h"
 
 GraphicsCardSet::GraphicsCardSet()
-    : RequiredPart("Graphics Card Set")
+    : Part("Graphics Card Set")
+    , RequiredPart()
     , m_graphicsCards(0)
     , m_numberOfGraphicsCards(-1)
 {
@@ -9,7 +10,8 @@ GraphicsCardSet::GraphicsCardSet()
 }
 
 GraphicsCardSet::GraphicsCardSet(GraphicsCard* graphicsCards, int numberOfGraphicsCards)
-    : RequiredPart("Graphics Card Set")
+    : Part("Graphics Card Set")
+    , RequiredPart()
     , m_graphicsCards(new GraphicsCard[numberOfGraphicsCards])
     , m_numberOfGraphicsCards(numberOfGraphicsCards)
 {
@@ -20,7 +22,8 @@ GraphicsCardSet::GraphicsCardSet(GraphicsCard* graphicsCards, int numberOfGraphi
 }
 
 GraphicsCardSet::GraphicsCardSet(const GraphicsCardSet &graphicsCardSet)
-    : RequiredPart("Graphics Card Set")
+    : Part("Graphics Card Set")
+    , RequiredPart()
     , m_graphicsCards(new GraphicsCard[graphicsCardSet.m_numberOfGraphicsCards])
     , m_numberOfGraphicsCards(graphicsCardSet.m_numberOfGraphicsCards)
 {

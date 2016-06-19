@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class CoolingFan : public OptionalPart
+class CoolingFan : public OptionalPart, public VisitablePart
 {
 public:
 

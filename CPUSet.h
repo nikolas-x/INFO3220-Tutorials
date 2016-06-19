@@ -4,7 +4,7 @@
 #include "CPU.h"
 #include <stdlib.h>
 
-class CPUSet : public RequiredPart
+class CPUSet : public RequiredPart, public VisitablePart
 {
 public:
 

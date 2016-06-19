@@ -3,7 +3,7 @@
 
 #include "Part.h"
 
-class RequiredPart : public Part
+class RequiredPart : public virtual Part
 {
 public:
 

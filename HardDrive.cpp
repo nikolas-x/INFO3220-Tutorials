@@ -1,20 +1,23 @@
 #include "HardDrive.h"
 
 HardDrive::HardDrive()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
 {
 
 }
 
 HardDrive::HardDrive(const std::string &name, int size)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_size(size)
 {
 
 }
 
 HardDrive::HardDrive(const HardDrive &hardDrive)
-    : RequiredPart(hardDrive.m_name)
+    : Part(hardDrive.m_name)
+    , RequiredPart()
     , m_size(hardDrive.m_size)
 {
 

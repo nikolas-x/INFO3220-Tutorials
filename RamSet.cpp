@@ -1,7 +1,8 @@
 #include "RamSet.h"
 
 RamSet::RamSet()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
     , m_ramSticks(0)
     , m_numberOfRamSticks(-1)
 {
@@ -9,7 +10,8 @@ RamSet::RamSet()
 }
 
 RamSet::RamSet(Ram* ram, int numberOfRamSticks)
-    : RequiredPart("Ram Set")
+    : Part("Ram Set")
+    , RequiredPart()
     , m_ramSticks(new Ram[numberOfRamSticks])
     , m_numberOfRamSticks(numberOfRamSticks)
 {
@@ -20,7 +22,8 @@ RamSet::RamSet(Ram* ram, int numberOfRamSticks)
 }
 
 RamSet::RamSet(const RamSet &ramSet)
-    : RequiredPart("Ram Set")
+    : Part("Ram Set")
+    , RequiredPart()
     , m_ramSticks(new Ram[ramSet.m_numberOfRamSticks])
     , m_numberOfRamSticks(ramSet.m_numberOfRamSticks)
 {

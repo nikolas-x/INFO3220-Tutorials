@@ -4,7 +4,7 @@
 #include "Ram.h"
 #include <stdlib.h>
 
-class RamSet : public RequiredPart
+class RamSet : public RequiredPart, public VisitablePart
 {
 public:
 

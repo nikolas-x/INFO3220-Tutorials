@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class DiscDrive : public OptionalPart
+class DiscDrive : public OptionalPart, public VisitablePart
 {
 public:
 

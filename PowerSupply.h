@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class PowerSupply : public RequiredPart
+class PowerSupply : public RequiredPart, public VisitablePart
 {
 public:
 

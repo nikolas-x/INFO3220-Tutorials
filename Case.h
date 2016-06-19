@@ -17,7 +17,7 @@ enum CaseType
     BaseUnit
 };
 
-class Case : public RequiredPart
+class Case : public RequiredPart, public VisitablePart
 {
 public:
 

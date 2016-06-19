@@ -1,19 +1,22 @@
 #include "BluRayDrive.h"
 
 BluRayDrive::BluRayDrive()
-    : DiscDrive()
+    : Part()
+    , DiscDrive()
 {
 
 }
 
 BluRayDrive::BluRayDrive(const std::string &name, int readSpeed)
-    : DiscDrive(name, readSpeed)
+    : Part(name)
+    , DiscDrive(name, readSpeed)
 {
 
 }
 
 BluRayDrive::BluRayDrive(const BluRayDrive &discDrive)
-    : DiscDrive(discDrive.m_name, discDrive.m_readSpeed)
+    : Part(discDrive.m_name)
+    , DiscDrive(discDrive.m_name, discDrive.m_readSpeed)
 {
 
 }

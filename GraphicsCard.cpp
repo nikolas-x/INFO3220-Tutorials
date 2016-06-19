@@ -1,13 +1,15 @@
 #include "GraphicsCard.h"
 
 GraphicsCard::GraphicsCard()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
 {
 
 }
 
 GraphicsCard::GraphicsCard(const std::string &name, int speed, int size)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_speed(speed)
     , m_size(size)
 {
@@ -15,7 +17,8 @@ GraphicsCard::GraphicsCard(const std::string &name, int speed, int size)
 }
 
 GraphicsCard::GraphicsCard(const GraphicsCard &graphicsCard)
-    : RequiredPart(graphicsCard.m_name)
+    : Part(graphicsCard.m_name)
+    , RequiredPart()
     , m_speed(graphicsCard.m_speed)
     , m_size(graphicsCard.m_size)
 {

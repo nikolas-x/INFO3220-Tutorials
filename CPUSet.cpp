@@ -2,7 +2,8 @@
 #include "PartAllocator.h"
 
 CPUSet::CPUSet()
-    : RequiredPart("CPU Set")
+    : Part("CPU Set")
+    , RequiredPart()
     , m_cpus(0)
     , m_numberOfCPUs(-1)
 {
@@ -10,7 +11,8 @@ CPUSet::CPUSet()
 }
 
 CPUSet::CPUSet(CPU** cpuSet, int numberOfCPUs)
-    : RequiredPart("CPU Set")
+    : Part("CPU Set")
+    , RequiredPart()
     , m_cpus(new CPU*[numberOfCPUs])
     , m_numberOfCPUs(numberOfCPUs)
 {
@@ -21,7 +23,8 @@ CPUSet::CPUSet(CPU** cpuSet, int numberOfCPUs)
 }
 
 CPUSet::CPUSet(const CPUSet& cpuSet)
-    : RequiredPart("CPU Set")
+    : Part("CPU Set")
+    , RequiredPart()
     , m_cpus(new CPU*[cpuSet.getNumberOfCPUs()])
     , m_numberOfCPUs(cpuSet.getNumberOfCPUs())
 {

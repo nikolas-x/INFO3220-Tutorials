@@ -1,21 +1,24 @@
 #include "PowerSupply.h"
 
 PowerSupply::PowerSupply()
-    : RequiredPart()
+    : Part("Generic Supply")
+    , RequiredPart()
     , m_watts(550)
 {
 
 }
 
 PowerSupply::PowerSupply(const std::string &name, int watts)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_watts(watts)
 {
 
 }
 
 PowerSupply::PowerSupply(const PowerSupply &powerSupply)
-    : RequiredPart(powerSupply.m_name)
+    : Part(powerSupply.m_name)
+    , RequiredPart()
     , m_watts(powerSupply.m_watts)
 {
 

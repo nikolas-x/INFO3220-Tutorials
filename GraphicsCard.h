@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class GraphicsCard : public RequiredPart
+class GraphicsCard : public RequiredPart, public VisitablePart
 {
 public:
 

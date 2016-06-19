@@ -4,7 +4,7 @@
 #include "GraphicsCard.h"
 #include <stdlib.h>
 
-class GraphicsCardSet : public RequiredPart
+class GraphicsCardSet : public RequiredPart, public VisitablePart
 {
 public:
 

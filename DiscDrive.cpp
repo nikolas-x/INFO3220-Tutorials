@@ -1,20 +1,23 @@
 #include "DiscDrive.h"
 
 DiscDrive::DiscDrive()
-    : OptionalPart()
+    : Part()
+    , OptionalPart()
 {
 
 }
 
 DiscDrive::DiscDrive(const std::string &name, int readSpeed)
-    : OptionalPart(name)
+    : Part(name)
+    , OptionalPart()
     , m_readSpeed(readSpeed)
 {
 
 }
 
 DiscDrive::DiscDrive(const DiscDrive &discDrive)
-    : OptionalPart(discDrive.m_name)
+    : Part(discDrive.m_name)
+    , OptionalPart()
     , m_readSpeed(discDrive.m_readSpeed)
 {
 

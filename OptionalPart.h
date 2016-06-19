@@ -3,7 +3,7 @@
 
 #include "Part.h"
 
-class OptionalPart : public Part
+class OptionalPart : public virtual Part
 {
 public:
 

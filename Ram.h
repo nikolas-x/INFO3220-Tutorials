@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class Ram : public RequiredPart
+class Ram : public RequiredPart, public VisitablePart
 {
 public:
 

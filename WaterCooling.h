@@ -5,7 +5,7 @@
 #include "OptionalPart.h"
 #include "VisitablePart.h"
 
-class WaterCooling : public OptionalPart
+class WaterCooling : public OptionalPart, public VisitablePart
 {
 public:
 

@@ -3,7 +3,7 @@
 
 #include "HardDrive.h"
 
-class HardDriveSet : public RequiredPart
+class HardDriveSet : public RequiredPart, public VisitablePart
 {
 public:
 

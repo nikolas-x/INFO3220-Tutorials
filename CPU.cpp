@@ -1,13 +1,15 @@
 #include "CPU.h"
 
 CPU::CPU()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
 {
 
 }
 
 CPU::CPU(const std::string &name, double clockSpeed, const std::string &socketType)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_clockSpeed(clockSpeed)
     , m_socketType(socketType)
 {
@@ -15,7 +17,8 @@ CPU::CPU(const std::string &name, double clockSpeed, const std::string &socketTy
 }
 
 CPU::CPU(const CPU &cpu)
-    : RequiredPart(cpu.m_name)
+    : Part(cpu.m_name)
+    , RequiredPart(cpu.m_name)
     , m_clockSpeed(cpu.m_clockSpeed)
     , m_socketType(cpu.m_socketType)
 {

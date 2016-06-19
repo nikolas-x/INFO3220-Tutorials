@@ -6,7 +6,7 @@
 #include "VisitablePart.h"
 #include <stdlib.h>
 
-class HardDrive : public RequiredPart
+class HardDrive : public RequiredPart, public VisitablePart
 {
 public:
 

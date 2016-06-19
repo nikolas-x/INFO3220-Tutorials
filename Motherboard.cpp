@@ -1,13 +1,15 @@
 #include "Motherboard.h"
 
 Motherboard::Motherboard()
-    : RequiredPart()
+    : Part()
+    , RequiredPart()
 {
 
 }
 
 Motherboard::Motherboard(const std::string &name, const std::string &socketType, int numberOfRamSlots, int numberOfGraphicsCardSlots)
-    : RequiredPart(name)
+    : Part(name)
+    , RequiredPart()
     , m_socketType(socketType)
     , m_numberOfRamSlots(numberOfRamSlots)
     , m_numberOfGraphicsCardSlots(numberOfGraphicsCardSlots)
@@ -15,7 +17,8 @@ Motherboard::Motherboard(const std::string &name, const std::string &socketType,
 }
 
 Motherboard::Motherboard(const Motherboard &motherboard)
-    : RequiredPart(motherboard.m_name)
+    : Part(motherboard.m_name)
+    , RequiredPart()
     , m_socketType(motherboard.m_socketType)
     , m_numberOfRamSlots(motherboard.m_numberOfRamSlots)
     , m_numberOfGraphicsCardSlots(motherboard.m_numberOfGraphicsCardSlots)

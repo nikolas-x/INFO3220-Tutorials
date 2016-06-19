@@ -1,20 +1,23 @@
 #include "WaterCooling.h"
 
 WaterCooling::WaterCooling()
-    : OptionalPart()
+    : Part()
+    , OptionalPart()
 {
 
 }
 
 WaterCooling::WaterCooling(const std::string &name, const std::string &systemType)
-    : OptionalPart(name)
+    : Part(name)
+    , OptionalPart()
     , m_systemType(systemType)
 {
 
 }
 
 WaterCooling::WaterCooling(const WaterCooling &waterCooling)
-    : OptionalPart(waterCooling.m_name)
+    : Part(waterCooling.m_name)
+    , OptionalPart()
     , m_systemType(waterCooling.m_systemType)
 {
 

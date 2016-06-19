@@ -1,21 +1,23 @@
 #include "Case.h"
 
 Case::Case()
-    : RequiredPart()
+    : Part("Generic Case")
     , m_caseType(BaseUnit)
 {
 
 }
 
 Case::Case(const std::string &name, CaseType caseType)
-    : RequiredPart(name)
+    : Part(name)
     , m_caseType(caseType)
 {
 
 }
 
 Case::Case(const Case &computerCase)
-    : RequiredPart(computerCase.m_name)
+    : Part(computerCase)
+    , RequiredPart(computerCase)
+    , VisitablePart(computerCase)
     , m_caseType(computerCase.m_caseType)
 {
 

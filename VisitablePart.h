@@ -2,9 +2,9 @@
 #define VISITABLEPART_H
 
 #include "Part.h"
-class Visitor;
+#include "Visitor.h"
 
-class VisitablePart : public Part
+class VisitablePart : public virtual Part
 {
 public:
     /**
