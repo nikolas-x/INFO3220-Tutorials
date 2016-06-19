@@ -45,5 +45,5 @@ std::string GraphicsCard::getPartInformation() const
 
 void GraphicsCard::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

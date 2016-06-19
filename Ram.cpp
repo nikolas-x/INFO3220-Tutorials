@@ -55,5 +55,5 @@ int Ram::getRamSize() const
 
 void Ram::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

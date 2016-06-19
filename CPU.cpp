@@ -40,6 +40,6 @@ std::string CPU::getPartInformation() const
 
 void CPU::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }
 

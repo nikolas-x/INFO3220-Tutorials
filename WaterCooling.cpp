@@ -36,5 +36,5 @@ std::string WaterCooling::getPartInformation() const
 
 void WaterCooling::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

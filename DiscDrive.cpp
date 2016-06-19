@@ -41,7 +41,7 @@ std::string DiscDrive::getPartInformation() const
 
 void DiscDrive::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }
 
 

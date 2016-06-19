@@ -45,5 +45,5 @@ int HardDrive::getHardDriveSize()
 
 void HardDrive::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

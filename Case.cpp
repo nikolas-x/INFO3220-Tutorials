@@ -44,5 +44,5 @@ std::string Case::getPartInformation() const
 
 void Case::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

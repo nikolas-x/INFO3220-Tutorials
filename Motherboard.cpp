@@ -45,6 +45,6 @@ std::string Motherboard::getPartInformation() const
 
 void Motherboard::accept(Visitor *visitor)
 {
-    //TODO
+    visitor->visit(this);
 }
 

@@ -79,6 +79,9 @@ unsigned int CPUSet::getNumberOfCPUs() const
 
 void CPUSet::accept(Visitor* visitor)
 {
-    //TODO
+    for (int i = 0; i < m_numberOfCPUs; ++i)
+    {
+        m_cpus[i]->accept(visitor);
+    }
 }
 

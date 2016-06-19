@@ -40,5 +40,5 @@ std::string PowerSupply::getPartInformation() const
 
 void PowerSupply::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }

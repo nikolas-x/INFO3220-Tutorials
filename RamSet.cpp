@@ -74,5 +74,8 @@ int RamSet::getNumberOfRamSticks() const
 
 void RamSet::accept(Visitor* visitor)
 {
-    //TODO
+    for (int i = 0; i < m_numberOfRamSticks; ++i)
+    {
+        m_ramSticks[i].accept(visitor);
+    }
 }

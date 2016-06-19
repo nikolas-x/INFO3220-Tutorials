@@ -74,6 +74,9 @@ int GraphicsCardSet::getNumberOfGraphicsCards() const
 
 void GraphicsCardSet::accept(Visitor* visitor)
 {
-    //TODO
+    for (int i = 0; i < m_numberOfGraphicsCards; ++i)
+    {
+        m_graphicsCards[i].accept(visitor);
+    }
 }
 

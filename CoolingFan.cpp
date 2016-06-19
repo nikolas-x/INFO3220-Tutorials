@@ -40,5 +40,5 @@ std::string CoolingFan::getPartInformation() const
 
 void CoolingFan::accept(Visitor* visitor)
 {
-    //TODO
+    visitor->visit(this);
 }
