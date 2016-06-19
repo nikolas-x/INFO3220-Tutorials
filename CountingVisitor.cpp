@@ -1,6 +1,18 @@
 #include "CountingVisitor.h"
+#include "ComputerParts.h"
 
 CountingVisitor::CountingVisitor()
+    : m_numberOfBluRayDrives(0)
+    , m_numberOfCoolingFans(0)
+    , m_numberOfCases(0)
+    , m_numberOfCPUs(0)
+    , m_numberOfDVDDrives(0)
+    , m_numberOfHardDrives(0)
+    , m_numberOfGraphicsCards(0)
+    , m_numberOfMotherboards(0)
+    , m_numberOfPowerSupplies(0)
+    , m_numberOfRamSticks(0)
+    , m_numberOfWaterCoolingUnits(0)
 {
 
 }
@@ -12,57 +24,73 @@ CountingVisitor::~CountingVisitor()
 
 void CountingVisitor::visit(VisitablePart* part)
 {
-    // TODO
+    part->accept(this);
 }
 
 void CountingVisitor::visit(Case* computerCase)
 {
-    // TODO
+    Q_UNUSED(computerCase);
+    ++m_numberOfCases;
 }
 
 void CountingVisitor::visit(CoolingFan* coolingFan)
 {
-    // TODO
+    Q_UNUSED(coolingFan);
+    ++m_numberOfCoolingFans;
 }
 
 void CountingVisitor::visit(CPU* cpu)
 {
-    // TODO
+    Q_UNUSED(cpu);
+    ++m_numberOfCPUs;
 }
 
 void CountingVisitor::visit(DiscDrive* discDrive)
 {
-    // TODO
+    if (BluRayDrive* bluRayDrive = dynamic_cast<BluRayDrive*>(discDrive))
+    {
+        visit(bluRayDrive);
+    }
+    if (DVDDrive* dvdDrive = dynamic_cast<DVDDrive*>(discDrive))
+    {
+        visit(dvdDrive);
+    }
 }
 
 void CountingVisitor::visit(GraphicsCard* graphicsCard)
 {
-    // TODO
+    Q_UNUSED(graphicsCard);
+    ++m_numberOfGraphicsCards;
 }
 
 void CountingVisitor::visit(HardDrive* hardDrive)
 {
-    // TODO
+    Q_UNUSED(hardDrive);
+    ++m_numberOfHardDrives;
 }
 
 void CountingVisitor::visit(Motherboard* motherboard)
 {
-    // TODO
+    Q_UNUSED(motherboard);
+    ++m_numberOfMotherboards;
 }
 
 void CountingVisitor::visit(PowerSupply* powerSupply)
 {
-    // TODO
+    Q_UNUSED(powerSupply);
+    ++m_numberOfPowerSupplies;
 }
 
 void CountingVisitor::visit(Ram* ram)
 {
-    // TODO
+    Q_UNUSED(ram);
+    ++m_numberOfRamSticks;
 }
 
 void CountingVisitor::visit(WaterCooling* waterCooling)
 {
-    // TODO
+    Q_UNUSED(waterCooling);
+    ++m_numberOfWaterCoolingUnits;
 }
 
 unsigned int CountingVisitor::numberOfBluRayDrive() const

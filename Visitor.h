@@ -1,6 +1,8 @@
 #ifndef VISITOR_H
 #define VISITOR_H
 
+#  define Q_UNUSED(x) (void)x;
+
 // Predeclaring of Part Classes
 class Case;
 class CPU;
