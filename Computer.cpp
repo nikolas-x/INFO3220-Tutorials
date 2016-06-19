@@ -99,8 +99,16 @@ Part** Computer::getAllComputerParts() const
 
 VisitablePart** Computer::getVisitableParts() const
 {
-    // TODO
-    return 0;
+    Part** parts = getAllComputerParts();
+    VisitablePart** visitableParts = new VisitablePart*[numberOfRequiredParts + m_numberOfAssignedAdditionalParts];
+
+    for (int i = 0; i < numberOfRequiredParts + m_numberOfAssignedAdditionalParts; ++i)
+    {
+        visitableParts[i] = dynamic_cast<VisitablePart*>(parts[i]);
+    }
+
+    delete[] parts;
+    return visitableParts;
 }
 
 RequiredPart** Computer::getRequiredPartsList() const
@@ -110,8 +118,16 @@ RequiredPart** Computer::getRequiredPartsList() const
 
 VisitablePart** Computer::getVisitableRequiredParts() const
 {
-    // TODO
-    return 0;
+    RequiredPart** parts = getRequiredPartsList();
+    VisitablePart** visitableParts = new VisitablePart*[numberOfRequiredParts];
+
+    for (int i = 0; i < numberOfRequiredParts; ++i)
+    {
+        Part* part = dynamic_cast<Part*>(parts[i]);
+        visitableParts[i] = dynamic_cast<VisitablePart*>(part);
+    }
+
+    return visitableParts;
 }
 
 OptionalPart** Computer::getAdditionalPartsList() const
@@ -121,8 +137,16 @@ OptionalPart** Computer::getAdditionalPartsList() const
 
 VisitablePart** Computer::getVisitableAdditionalParts() const
 {
-    // TODO
-    return 0;
+    OptionalPart** parts = getAdditionalPartsList();
+    VisitablePart** visitableParts = new VisitablePart*[m_numberOfAssignedAdditionalParts];
+
+    for (int i = 0; i < m_numberOfAssignedAdditionalParts; ++i)
+    {
+        Part* part = dynamic_cast<Part*>(parts[i]);
+        visitableParts[i] = dynamic_cast<VisitablePart*>(part);
+    }
+
+    return visitableParts;
 }
 
 int Computer::getNumberOfAdditionalParts() const

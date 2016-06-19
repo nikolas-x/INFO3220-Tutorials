@@ -158,6 +158,9 @@ public:
 
 protected:
 
+    virtual void visit(BluRayDrive* bluRayDrive);
+    virtual void visit(DVDDrive* dvdDrives);
+
     unsigned int m_numberOfBluRayDrives;
     unsigned int m_numberOfCoolingFans;
     unsigned int m_numberOfCases;

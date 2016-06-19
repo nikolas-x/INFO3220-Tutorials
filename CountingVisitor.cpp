@@ -27,6 +27,12 @@ void CountingVisitor::visit(VisitablePart* part)
     part->accept(this);
 }
 
+void CountingVisitor::visit(BluRayDrive* bluRayDrive)
+{
+    Q_UNUSED(bluRayDrive);
+    ++m_numberOfBluRayDrives;
+}
+
 void CountingVisitor::visit(Case* computerCase)
 {
     Q_UNUSED(computerCase);
@@ -55,6 +61,12 @@ void CountingVisitor::visit(DiscDrive* discDrive)
     {
         visit(dvdDrive);
     }
+}
+
+void CountingVisitor::visit(DVDDrive* dvdDrive)
+{
+    Q_UNUSED(dvdDrive);
+    ++m_numberOfDVDDrives;
 }
 
 void CountingVisitor::visit(GraphicsCard* graphicsCard)
